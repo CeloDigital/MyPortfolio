@@ -33,7 +33,7 @@ export default function Testimonials() {
         <h2 className="text-3xl md:text-4xl font-bold mb-4">O que dizem meus clientes</h2>
         <p className="text-slate-400 mb-12 text-sm md:text-base">Confiança técnica é a base para resultados reais.</p>
         
-        <div className="relative bg-slate-900/40 border border-slate-900 p-6 md:p-10 rounded-2xl text-left shadow-xl overflow-hidden min-h-[280px] md:min-h-[240px] flex flex-col justify-between">
+        <div className="relative bg-slate-900/40 border border-slate-900 p-6 md:p-10 rounded-2xl text-left shadow-xl overflow-hidden min-h-70 md:min-h-60 flex flex-col justify-between">
           <Quote className="absolute right-6 top-6 text-emerald-500/10 w-24 h-24 pointer-events-none" />
           
           <p className="text-base md:text-lg text-slate-300 italic leading-relaxed mb-8 relative z-10">
