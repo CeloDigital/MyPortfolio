@@ -3,19 +3,45 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // 'idle', 'loading', 'success'
 
   const isEmailValid = email.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isEmailValid) return;
-
     setStatus('loading');
-    setTimeout(() => {
-      setStatus('success');
-      setTimeout(() => setStatus('idle'), 4000);
-    }, 1800);
+
+    const formData = new FormData(e.target);
+    
+    // Passagem correta com chave e valor para a API do Web3Forms
+    formData.append("access_key", "ab1c4fb3-bd23-40b6-9426-d5c361dfca1e");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setEmail('');
+        e.target.reset(); // Limpa os campos do formulário
+
+        // Retorna o botão ao estado normal após 4 segundos
+        setTimeout(() => {
+          setStatus('idle');
+        }, 4000);
+      } else {
+        alert("Ocorreu um erro ao enviar. Tente novamente.");
+        setStatus('idle');
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      alert("Erro de conexão com o servidor.");
+      setStatus('idle');
+    }
   };
 
   return (
@@ -45,7 +71,8 @@ export default function Contact() {
         <form onSubmit={handleSubmit} className="bg-slate-900/40 border border-slate-900 p-6 md:p-8 rounded-2xl space-y-5 shadow-xl">
           <div className="relative group">
             <input 
-              type="text" 
+              type="text"
+              name='name' 
               required 
               className="w-full bg-slate-950 border border-slate-900 focus:border-emerald-500 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-hidden transition-all" 
               placeholder="Seu Nome" 
@@ -55,6 +82,7 @@ export default function Contact() {
           <div className="relative">
             <input 
               type="email" 
+              name="email"
               required 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -67,6 +95,7 @@ export default function Contact() {
 
           <textarea 
             required 
+            name="message"
             rows="4" 
             className="w-full bg-slate-950 border border-slate-900 focus:border-emerald-500 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 outline-hidden transition-all resize-none" 
             placeholder="Como posso te ajudar?"
