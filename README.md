@@ -22,8 +22,9 @@ Landing page ultra-moderna, responsiva e de alta performance desenvolvida para a
 * **Formulário de Contato Inteligente**: Micro-interações focadas em campos, validação de e-mail em tempo real e feedback visual estruturado (estados de carregamento e sucesso).
 * **Integração de Redes Sociais**: Botões de conexão direta via SVG nativo injetado, prevenindo problemas de quebra de pacotes externos.
 
-<img width="1905" height="962" alt="image" src="https://github.com/user-attachments/assets/371de701-97f8-4ecf-b392-46c105527fba" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/371de701-97f8-4ecf-b392-46c105527fba" />
 
-<img width="790" height="943" alt="image" src="https://github.com/user-attachments/assets/e2f85289-d446-49aa-be35-43509c75419c" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e2f85289-d446-49aa-be35-43509c75419c" />
 
-<img width="531" height="928" alt="image" src="https://github.com/user-attachments/assets/219d026d-9988-4778-a407-520ede07daa2" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/219d026d-9988-4778-a407-520ede07daa2" />
+
